@@ -100,8 +100,6 @@ def get_product_quantity_last_purchase_fast(product_id, previous_purchases, curr
 
     purch = max(purchases_with_dates.items(), key=operator.itemgetter(1))[0]
 
-    product_in_this_purchase = get_products_by_purchase_fast(products_df_purchase, purch)
-
     try:
         quantity = products_df_multi.loc[purch].at[product_id, 'quantity']
     except KeyError:
